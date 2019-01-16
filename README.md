@@ -35,7 +35,7 @@ PS: 回传数据与普通数据共用串口通道，在使用普通串口时�
     * 控制电流时，无 PID 调节，对应 GimbalInterface Unit Test 程序
 * Set Front Angle 是电机基准角度校准，在电机 Disabled 的情况下摆正云台，点击 Set Front Angle，会以当前实际角度作为基准角度。
 * 关于目标值 (Targets) 的基本思路：每一次运行（Run）中包含一定数量的（Run for X）目标值（Target），每个目标值只持续给定的时间（Time for each）。时间结束后切换到下一个目标（如果到了列表结尾，从头开始），当最后一个目标结束后，电机设为 Disabled。
-* GimbalController Unit Test 程序内嵌保护，Running 过程中，如果达到了最大__实际__角度、__实际__转速、__目标__电流，则触发保护机制，电机 Disabled，本次运行中断。
+* GimbalController Unit Test 程序内嵌保护，Running 过程中，如果达到了最大**实际**角度、**实际**转速、**目标**电流，则触发保护机制，电机 Disabled，本次运行中断。
 * 显示模式：
     * Continuous 连续模式，显示最近 X 秒。
     * Auto 自动模式，当没有 Target 在运行时，图表不更新（但 Current 和 Target 标签依然更新，且 Receiving 灯闪烁），当开始一次 Run 的时候，图表以 Run 的时刻为起点，以最后一个 Target 结束为终点。
