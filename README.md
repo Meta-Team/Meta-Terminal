@@ -1,18 +1,18 @@
 # Meta Terminal
 
-这是一个使用 MATLAB AppDesigner 设计的 PC 端调试程序，通过串口 Shell 与嵌入式程序交互。
+这是一个使用 MATLAB AppDesigner 设计的 PC 端调试程序，通过串口 Shell 与嵌入式程序交互。使用前请务必**仔细阅读**以下说明。
 
 ## Usage
 使用 MATLAB 打开**整个目录**，双击右侧 Meta_Terminal_App.mlapp 文件或在命令窗口输入 Meta_Terminal_App。
 
-![Usage](res/Usage.png)
+![Usage](resources/Usage.png)
 
 注意：不可直接将 Meta_Terminal_App.mlapp 文件拖入命令窗口。
 
 
 ## Home Tab
 
-![Home Tab](res/Home.png)
+![Home Tab](resources/Home.png)
 
 * Port 选择串口
     * /dev/cu.SLAB_USBtoUART 为 Mac 下 CP2102 模块串口
@@ -24,11 +24,10 @@
 
 PS: 回传数据与普通数据共用串口通道，在使用普通串口时，可能会与回传数据混杂。
 
-## Gimbal Control
+## Gimbal Control 云台控制
 
-![Gimbal Control](res/Gimbal-V2.2.png)
+![Gimbal Control](resources/Gimbal-V2.2.png)
 
-## Note
 * 基本思路：每次调节一个电机（Yaw/Pitch），控制一个值（Main Value，角度/角速度/电流）。
     * 控制角度时，对应调节的 PID 为 angle_to_v_pid（v_to_i_pid 同时生效），对应 GimbalController Unit Test 程序
     * 控制角速度时，对应调节的 PID 为 v_to_i_pid（angle_to_v_pid 不生效），对应 GimbalController Unit Test 程序
@@ -50,6 +49,19 @@ PS: 回传数据与普通数据共用串口通道，在使用普通串口时，�
     * 回到 Home 标签页，Disconnect，Connect
     * 使用 Clear Data 清空历史数据
     * 重启串口和开发版
+
+## Chassis Control 底盘控制
+
+![Chassis Control](resources/chassis-V3.png)
+
+* 四个图表分别显示四个底盘电机的目标**速度**和实际**速度**。
+* 每次只能运行单个目标，运行时间由 Terminal 给定，但计时由嵌入式程序控制（防止通信失效车辆失控）。
+* 点击 Reverse 将目标转换为相反数。
+
+
+# 开发指南
+
+本程序使用 MATLAB App Designer 开发。请务必仔细阅读代码开头全局变量处关于各个概念的说明。
 
 # Update History
 
@@ -79,3 +91,6 @@ PS: 回传数据与普通数据共用串口通道，在使用普通串口时，�
 
 ## 2019.1.18 V2.2.2
 * 添加摩擦轮开关 "FW Enable"
+
+## 2019.2.12 V3
+* 添加底盘控制
