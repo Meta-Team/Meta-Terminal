@@ -3,7 +3,7 @@
 这是一个使用 MATLAB AppDesigner 设计的 PC 端调试程序，通过串口 Shell 与嵌入式程序交互。使用前请务必**仔细阅读**以下说明。
 
 ## Usage
-使用 MATLAB 打开**整个目录**，双击右侧 Meta_Terminal_App.mlapp 文件或在命令窗口输入 Meta_Terminal_App。
+使用 MATLAB (>= 2018b) 打开**整个目录**，双击右侧 Meta_Terminal_App.mlapp 文件或在命令窗口输入 Meta_Terminal_App。
 
 ![Usage](resources/Usage.png)
 
@@ -58,10 +58,19 @@ PS: 回传数据与普通数据共用串口通道，在使用普通串口时，�
 * 每次只能运行单个目标，运行时间由 Terminal 给定，但计时由嵌入式程序控制（防止通信失效车辆失控）。
 * 点击 Reverse 将目标转换为相反数。
 
+## AHRS 可视化
+
+* 根据回传数据绘制 AHRS 姿态
+
+## 操作手配置
+
+![](resources/2019-07-12-16-14-55.png)
 
 # 开发指南
 
 本程序使用 MATLAB App Designer 开发。请务必仔细阅读代码开头全局变量处关于各个概念的说明。
+
+关于协议的说明参考 [Meta Terminal 开发参考 · Meta-Team/Meta-Infantry Wiki](https://github.com/Meta-Team/Meta-Infantry/wiki/Meta-Terminal-%E5%BC%80%E5%8F%91%E5%8F%82%E8%80%83)。
 
 # Update History
 
@@ -94,3 +103,9 @@ PS: 回传数据与普通数据共用串口通道，在使用普通串口时，�
 
 ## 2019.2.12 V3
 * 添加底盘控制
+
+## 2019.6.27 V3.1
+* 添加 AHRS 可视化
+
+## 2019.7.12 V3.2
+* 添加操作手配置
